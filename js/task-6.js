@@ -31,14 +31,17 @@ function createBoxes(amount) {
   let boxSize = 30; // Початковий розмір квадратика
   const boxBigger = 10; // Збільшення розміру квадратика
 
+  const fragment = document.createDocumentFragment();
+
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
     box.style.width = `${boxSize}px`;
     box.style.height = `${boxSize}px`;
     box.style.backgroundColor = getRandomHexColor();
     boxSize += boxBigger; // Збільшуємо розмір для наступного квадратика
-    container.appendChild(box);
+    fragment.appendChild(box); // Додаємо квадратик до фрагменту
   }
+  container.appendChild(fragment); // Додаємо всі елементи до контейнера в одній операції
 }
 
 // Обробка події на кнопку видалення
